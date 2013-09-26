@@ -18,14 +18,14 @@ R13.8 Factorial recursively
 Place your Yoda apps in one package and your BlackJack game in another.
 
 5 points
-YodaSpeak : Create console program that takes a sentence and reverses the order
+YodaSpeak : Create a console program that takes a sentence and reverses the order
 of the words. For example, if the sentence is "The force is strong with you", The output
-would be "you with strong is force The". Write this iteratively.
+would be "you with strong is force The". Implement this program iteratively.
 
 5 points
 YodaSpeakRecursive : Create console program that takes a sentence and reverses the order
 of the words. For example, if the sentence is "The force is strong with you", The output
-would be "you with strong is force The". Write this recursively.
+would be "you with strong is force The". Implement this program recursively.
 
 
 75 points
@@ -42,12 +42,7 @@ User starts with 1000$
 You must respect hard and soft aces (either 1 or 11)
 Dealer must hit on soft 17
 
-
-
-
-
-
-
+There are many resource online where you can find png's or jpg's or cards.
 
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
