@@ -1,3 +1,5 @@
+package blackjack;
+
 /**
  * Created with IntelliJ IDEA.
  * User: ag
