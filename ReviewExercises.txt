@@ -2,6 +2,60 @@
 # Use this file to answer Review Exercises from the Big Java textbook
 #########################################################################
 
+R13.1--
+Recursive method--a method that calls itself with simpler inputs.
+
+Iteration--A process that checks all values of a certain input up to what is necessary in order to calculate an output.
+It iterates explicitly through a loop, or series of values, in order to calculate the output.
+
+Infinite recursion--A recursive call that does not terminate.  This is usually either a result of the method not having
+a base case defined or where the inputs are not simpler in each call to the method.
+
+Recursive helper method--A recursive helper method is a method which operates recursively to solve part of a recursive
+problem but doesn't solve the entire thing so it needs to be called by an original method that is not recursive as part
+of a larger solution.
+
+R13.2--
+Determine whether array has an even or odd number of elements.
+If odd, remove the maximum of the first or last element, or last element if they are equal,
+    from the array so it has an even number of elements.
+Call a method returnMin that does the following:
+    if array length = 2, return minimum of the two elements.
+    //This is the recursive call
+    else set value1 = to returnMin(first half of the array) and value2 = returnMin of the second half of the array
+    return minimum of value1, value2
+
+R13.3--This can be accomplished using the method above as a recursive helper method.
+
+//Pseudocode finds the minimum from the array and cuts it out and then finds the minimum of the array-1 etc.
+Create an arrayList to store the sorted values.
+For each value in the length of the original array:
+    Run the method from 13.2 on the entire array to find the minimum.
+    Find minimum value, add to sorted arrayList at the end.
+    Remove value from the original array.
+
+
+R13.6--Recursion to find x^n.
+
+Call method findPower(x,n):
+    Base cases: if n = 0, return 1.
+                if n = 1, return x.
+
+                else return findPower(x,n-1)*x
+
+R13.8--Recursion to find factorial.
+
+Call method findFactorial(n):
+    Base cases:
+        if n <= 1, return 1  //Not sure how factorials are defined for <1
+
+        else return findFactorial(n-1)*n
+
+
+
+
+
+
 
 
 
