@@ -19,7 +19,7 @@ public class YodaSpeak {
         System.out.println("Please enter a sentence to reformat as yoda speak:");
         yodaSpeak = in.nextLine();
         yodaSplit = yodaSpeak.split(" ");
-        //Use a four loop to print the array list backward.  Add a space after each word to format correctly.
+        //Use a for loop to print the array list backward.  Add a space after each word to format correctly.
         for (int i = yodaSplit.length-1; i >= 0 ; i--) {
             System.out.print(yodaSplit[i]);
             System.out.print(" ");
