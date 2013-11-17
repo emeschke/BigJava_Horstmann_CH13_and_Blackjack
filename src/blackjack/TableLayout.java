@@ -31,26 +31,6 @@ public class TableLayout {
     private JButton $20BetButton;
     private JButton hitButton;
     private JButton $100BetButton;
-    private JPanel player1;
-    private JPanel player2;
-    private JPanel player3;
-    private JPanel player4;
-    private JPanel player6;
-    private JPanel player7;
-    private JPanel player8;
-    private JPanel player9;
-    private JPanel player10;
-    private JPanel comp1;
-    private JPanel comp2;
-    private JPanel comp3;
-    private JPanel comp4;
-    private JPanel comp5;
-    private JPanel comp6;
-    private JPanel comp7;
-    private JPanel comp8;
-    private JPanel comp9;
-    private JPanel comp10;
-    private JPanel player5;
     private JTextField playerBetField;
     private JTextField playerBankroll;
     private JTextArea textArea1;
@@ -119,6 +99,10 @@ public class TableLayout {
                 // Check if the player has a blackjack, in which case you pay the player out.
                 if(!player.isGameInProgress() && player.getBet()>0){
                     player.setGameInProgress(true);
+                    if(cardShoe.getCardCount()>52){
+                        textArea1.append("\n`-`-`-`-`-`-`-`-Shuffling deck`-`-`-`-`-`-`");
+                        cardShoe.shuffle();
+                    }
                     textArea1.append("\n*****************\nDealing cards.");
                     hand.resetHand();
                     hand.addPlayerCard(cardShoe.getCard());
@@ -126,8 +110,8 @@ public class TableLayout {
                     hand.addCompCard(cardShoe.getCard());
                     printCards(hand);
                     //Check that the player has been dealt a blackjack.  Game ends and player is paid out.
-                    if(hand.hardScoreComp()==21){
-                        textArea1.append("Blackjack!!  Pays " + (player.getBet()*2) + ".");
+                    if(hand.hardScorePlayer()==21){
+                        textArea1.append("\nBlackjack!!  Pays " + (player.getBet() * 2) + ".");
                         player.playerBlackjack();
                         printMoney(player);
                     }
@@ -202,7 +186,6 @@ public class TableLayout {
                     //While computer soft score is less than 17, computer takes a card.
                     while(hand.winner() == 0){
                         hand.addCompCard(cardShoe.getCard());
-                        System.out.println("RUnning");
                         printCards(hand);
                         printScore(hand);
                     }
@@ -232,8 +215,8 @@ public class TableLayout {
 
         //ImagePanel needs to take a string also, the name of the file.
         //Put in a for loop with the cards to add cards to the display.
-        ImagePanel playerPanel1 = new ImagePanel(0,0,new Card(3));
-        ImagePanel dealerPanel1 = new ImagePanel(0,0, new Card(17));
+        //ImagePanel playerPanel1 = new ImagePanel(0,0,new Card(3));
+        //ImagePanel dealerPanel1 = new ImagePanel(0,0, new Card(17));
         //ImagePanel dealerPanel2 = new ImagePanel(0,0, new Card(50));
         //player6.add(playerPanel);
         //comp1.add(dealerPanel1);
@@ -265,31 +248,6 @@ public class TableLayout {
 
         printScore(hand);
 
-        //System.out.println(hand.getCardsPlayer().get(0).getStrCardNum());
-        //ImagePanel compPanel1 = new ImagePanel(0,0, new Card(3));
-        //comp1.add(compPanel1);
-        //ImagePanel playerPanel2 = new ImagePanel(0,0, hand.getCardsPlayer().get(1));
-        //player2.add(playerPanel2);
-        //ImagePanel playerPanel3 = new ImagePanel(0,0, hand.getCardsPlayer().get(2));
-        /*
-        comp1.add(playerPanel3);
-        ImagePanel playerPanel4 = new ImagePanel(0,0, hand.getCardsPlayer().get(3));
-        comp1.add(playerPanel4);
-        ImagePanel playerPanel5 = new ImagePanel(0,0, hand.getCardsPlayer().get(4));
-        comp1.add(playerPanel5);
-        ImagePanel playerPanel6 = new ImagePanel(0,0, hand.getCardsPlayer().get(5));
-        comp1.add(playerPanel6);
-        ImagePanel playerPanel7 = new ImagePanel(0,0, hand.getCardsPlayer().get(6));
-        comp1.add(playerPanel7);
-        ImagePanel playerPanel8 = new ImagePanel(0,0, hand.getCardsPlayer().get(7));
-        comp1.add(playerPanel8);
-        ImagePanel playerPanel9 = new ImagePanel(0,0, hand.getCardsPlayer().get(8));
-        comp1.add(playerPanel9);
-        ImagePanel playerPanel10 = new ImagePanel(0,0, hand.getCardsPlayer().get(9));
-        comp1.add(playerPanel10);
-        */
-
-
     }
 
     public void printScore(Hand hand){
@@ -303,7 +261,7 @@ public class TableLayout {
             textArea1.append("\n*******Player score is " + hand.softScorePlayer() + ".********");
         }
 
-        if (hand.hardScoreComp()>17){
+        if (hand.hardScoreComp()>17 && hand.hardScoreComp()<22){
             textArea1.append("\n#####Computer score is " + hand.hardScoreComp() + ".#####");
 
         }

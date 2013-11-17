@@ -106,7 +106,7 @@ public class Hand {
             return 1;
         }
         //If the computer score is less than 18, there is no winner.
-        else if(softScoreComputer()<17 && hardScoreComp()<18){
+        else if(softScoreComputer()<17 || hardScoreComp()<18){
             return 0;
         }
         //If the computer's score is over 21, it has lost.
