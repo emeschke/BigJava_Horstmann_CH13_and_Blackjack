@@ -11,9 +11,9 @@ public class Card {
     private String strCardNum;
     private String cardSuit;
     private int cardVal;
-    String[] names = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen",
+    private String[] names = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen",
                       "king"};
-    String[] suits = {"clubs", "diamonds", "spades", "hearts"};
+    private String[] suits = {"clubs", "diamonds", "spades", "hearts"};
 
     public Card(int i){
         //0 is position of an ace, 1-9 is position of a number card, 10-13 is a value of 10 for 10/facecard
