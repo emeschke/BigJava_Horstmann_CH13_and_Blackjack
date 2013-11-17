@@ -11,7 +11,7 @@ public class Card {
     private String strCardNum;
     private String cardSuit;
     private int cardVal;
-    String[] names = {"ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen",
+    String[] names = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen",
                       "king"};
     String[] suits = {"clubs", "diamonds", "spades", "hearts"};
 
@@ -34,7 +34,14 @@ public class Card {
     }
 
     public int getCardVal() {
-        return cardVal;
+        //Return the value of the card as an int.
+        if (cardVal<10){
+            return cardVal;
+        }
+        else{
+            return 10;
+        }
+
     }
 }
 
